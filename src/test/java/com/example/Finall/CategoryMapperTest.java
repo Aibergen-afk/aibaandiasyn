@@ -1,8 +1,8 @@
 package com.example.Finall;
 
-import com.example.Finall.dto.AuthorDto;
-import com.example.Finall.mapper.AuthorMapper;
-import com.example.Finall.model.Author;
+import com.example.Finall.dto.CategoryDto;
+import com.example.Finall.mapper.CategoryMapper;
+import com.example.Finall.model.Category;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +11,30 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class AuthorMapperTest {
+public class CategoryMapperTest {
 
     @Autowired
-    private AuthorMapper mapper;
+    private CategoryMapper mapper;
 
     @Test
     void toEntityTest() {
-        AuthorDto dto = new AuthorDto();
+        CategoryDto dto = new CategoryDto();
         dto.setId(1L);
-        dto.setName("Test Author");
+        dto.setName("Test Category");
 
-        Author entity = mapper.toEntity(dto);
+        Category entity = mapper.toEntity(dto);
 
         Assertions.assertNotNull(entity);
-        Assertions.assertEquals(dto.getId(), entity.getId());
         Assertions.assertEquals(dto.getName(), entity.getName());
     }
 
     @Test
     void toDtoTest() {
-        Author entity = new Author();
-        entity.setId(2L);
-        entity.setName("Entity Author");
+        Category entity = new Category();
+        entity.setId(1L);
+        entity.setName("Entity Category");
 
-        AuthorDto dto = mapper.toDto(entity);
+        CategoryDto dto = mapper.toDto(entity);
 
         Assertions.assertNotNull(dto);
         Assertions.assertEquals(entity.getId(), dto.getId());
@@ -44,16 +43,16 @@ public class AuthorMapperTest {
 
     @Test
     void toDtoListTest() {
-        Author a1 = new Author();
-        a1.setId(1L);
-        a1.setName("A1");
+        Category c1 = new Category();
+        c1.setId(1L);
+        c1.setName("C1");
 
-        Author a2 = new Author();
-        a2.setId(2L);
-        a2.setName("A2");
+        Category c2 = new Category();
+        c2.setId(2L);
+        c2.setName("C2");
 
-        List<Author> entities = List.of(a1, a2);
-        List<AuthorDto> dtos = entities.stream()
+        List<Category> entities = List.of(c1, c2);
+        List<CategoryDto> dtos = entities.stream()
                 .map(mapper::toDto)
                 .toList();
 
