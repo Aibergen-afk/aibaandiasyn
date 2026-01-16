@@ -1,11 +1,5 @@
 INSERT INTO permissions (name)
-VALUES ('ROLE_USER'),
-       ('ROLE_USER');
-
-INSERT INTO users (username, password)
-VALUES ('user1', '$2a$10$testpassworduser'),
-       ('user2', '$2a$10$testpasswordadmin');
-
+VALUES ('ROLE_USER');
 
 INSERT INTO authors (name)
 VALUES ('Abai Kunanbaev'),
@@ -23,6 +17,6 @@ VALUES ('ABC', 1949, 1),
        ('IAdad', 1996, 3);
 
 INSERT INTO book_categories (book_id, category_id)
-VALUES (1, 1),
-       (2, 2),
-       (3, 3);
+VALUES (17, 1),
+       (18, 2),
+       (15, 3);
