@@ -20,7 +20,7 @@ public class MyUserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/items")
+    @GetMapping("/login")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<?> items() {
         return ResponseEntity.ok("You are authorized!");
